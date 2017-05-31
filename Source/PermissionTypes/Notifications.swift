@@ -25,7 +25,7 @@
 #if PERMISSION_NOTIFICATIONS
 internal extension Permission {
     var statusNotifications: PermissionStatus {
-        if UIApplication.shared.currentUserNotificationSettings?.types.isEmpty == false {
+        if UIApplication.shared.currentUserNotificationSettings?.types.isEmpty == false && UIApplication.shared.isRegisteredForRemoteNotifications {
             return .authorized
         }
         
