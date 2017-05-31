@@ -38,6 +38,7 @@ internal extension Permission {
         NotificationCenter.default.addObserver(self, selector: #selector(requestingNotifications), name: .UIApplicationWillResignActive)
         
         UIApplication.shared.registerUserNotificationSettings(settings)
+        UIApplication.shared.registerForRemoteNotifications()
     }
     
     @objc func requestingNotifications() {
