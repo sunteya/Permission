@@ -136,7 +136,7 @@ internal class DeniedAlert: PermissionAlert {
         case .bluetooth:
             UIApplication.shared.openURL(URL(string: appPrefs + ":root=Bluetooth")!)
         case .locationAlways:
-            UIApplication.shared.openURL(URL(string: appPrefs + ":root=LOCATION_SERVICES")!)
+            UIApplication.shared.openURL(URL(string: appPrefs + ":root=Privacy&path=LOCATION")!)
         case .notifications(_):
             UIApplication.shared.openURL(URL(string: appPrefs + ":root=NOTIFICATIONS_ID")!)
         default:
