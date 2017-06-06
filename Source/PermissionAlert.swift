@@ -126,10 +126,10 @@ internal class DeniedAlert: PermissionAlert {
     private func settingsHandler(_ action: UIAlertAction) {
         NotificationCenter.default.addObserver(self, selector: .settingsHandler, name: .UIApplicationDidBecomeActive)
         
-        var appPrefs: String = "App-Prefs"
+        var appPrefs: String = "prefs"
         
-        if #available(iOS 9, *) {
-            appPrefs = "prefs"
+        if #available(iOS 10, *) {
+            appPrefs = "App-Prefs"
         }
         
         print("Trying to open settings URL: \(appPrefs + ":root=Privacy&path=LOCATION")")
