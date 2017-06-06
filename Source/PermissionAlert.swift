@@ -132,6 +132,8 @@ internal class DeniedAlert: PermissionAlert {
             appPrefs = "prefs"
         }
         
+        print("Trying to open settings URL: \(appPrefs + ":root=Privacy&path=LOCATION")")
+        
         switch permission.type {
         case .bluetooth:
             UIApplication.shared.openURL(URL(string: appPrefs + ":root=Bluetooth")!)
