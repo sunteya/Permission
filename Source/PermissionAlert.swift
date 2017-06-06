@@ -126,9 +126,17 @@ internal class DeniedAlert: PermissionAlert {
     private func settingsHandler(_ action: UIAlertAction) {
         NotificationCenter.default.addObserver(self, selector: .settingsHandler, name: .UIApplicationDidBecomeActive)
         
-        if let URL = URL(string: UIApplicationOpenSettingsURLString) {
-            UIApplication.shared.openURL(URL)
+        switch permission.type {
+        case .bluetooth:
+            UIApplication.shared.openURL(URL(string: "prefs:root=Bluetooth")!)
+        case .locationAlways:
+            UIApplication.shared.openURL(URL(string: "prefs:root=LOCATION_SERVICES")!)
+        case .notifications(_):
+            UIApplication.shared.openURL(URL(string: "prefs:root=NOTIFICATIONS_ID")!)
+        default:
+            break
         }
+        
     }
 }
 
